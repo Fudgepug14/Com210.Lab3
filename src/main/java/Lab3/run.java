@@ -14,7 +14,7 @@ public class run {
             }
             if (ch == '}' || ch == ')' || ch == ']'){
                 char popped = coolStack.pop();
-                if popped 
+                
             }
         }
         
