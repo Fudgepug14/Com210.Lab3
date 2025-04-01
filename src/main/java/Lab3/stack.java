@@ -2,20 +2,20 @@ package main.java.Lab3;
 
 public class stack {
     private int maxSize;
-    private long[] stackArray;
+    private char[] stackArray;
     private int top;
 
     public stack (int s){
         maxSize = s;
-        stackArray = new long[maxSize];
+        stackArray = new char[maxSize];
         top = -1;
     }
 
-    public void push(long j){
+    public void push(char j){
         stackArray[++top] = j;
     }
 
-    public long pop(){
+    public char pop(){
         return stackArray[top--];
     }
 
