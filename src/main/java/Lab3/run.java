@@ -1,24 +1,43 @@
 package main.java.Lab3;
 
-import java.util.*;
-
 public class run {
     public static void main(String[] args) {
-        stack coolStack = new stack(10);
+        stack coolStack = new stack(10000);
 
-        String x = "{()}";
+        String x = "{[](){([])}}";
+        try {
 
-        for (char ch : x.toCharArray()){
-            if (ch == '{' || ch == '(' || ch == '['){
-                coolStack.push(ch);
-            }
-            if (ch == '}' || ch == ')' || ch == ']'){
+            for (char ch : x.toCharArray()){
+                if (ch == '{' || ch == '(' || ch == '['){
+                    System.out.println("pushing " + ch);
+                    coolStack.push(ch);
+                    continue;
+                }
                 char popped = coolStack.pop();
-                
+    
+                System.out.println(ch + ", " + popped);
+                if (ch == '}' && popped != '{'){
+                    System.out.println("Not valid! }");
+                    return;
+                }
+                if (ch == ')' && popped != '('){
+                    System.out.println("Not valid! )");
+                    return;
+                }
+                if (ch == ']' && popped != '['){
+                    System.out.println("Not valid! ]");
+                    return;
+                }
             }
         }
-        
-    }
+        catch(ArrayIndexOutOfBoundsException e){
+            System.out.println("Not valid!");
+            return;
+        }
+        System.out.println("Valid!");
+    } 
 }
+
+
 
 
